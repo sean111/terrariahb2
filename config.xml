@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+xmlns:gap = "http://phonegap.com/ns/1.0"
+id = "com.code215.terrariahb2"
+versionCode = '289'
+version = "0.0.1">
+
+<name>TerrariaHB2</name>
+
+<description>
+Terraria information on your phone!
+</description>
+
+<author href="http://code215.tumblr.com/"
+email="sean111@gmail.com">
+Sean Burke
+</author>
+
+<gap:platforms>
+<gap:platform name="android" minVersion="2.1" />
+<gap:platform name="webos" />
+<gap:platform name="symbian.wrt" />
+<gap:platform name="blackberry" project="widgets"/>
+</gap:platforms>
+
+<icon src="icon.png" gap:role="default" />
+<gap:splash src="splash.png" width="300" height="300"/>
+<feature name="http://api.phonegap.com/1.0/network"/>
+
+<!-- sample preference specification -->
+<!-- <preference name="autorotate" value="false" readonly="true"/> -->
+</widget>
+
