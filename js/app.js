@@ -46,10 +46,10 @@ $('#menu').live('pageshow', function(e, data) {
 document.addEventListener('deviceready', function () {
     //alert('Device Ready');
     document.addEventListener('menubutton', function() {
-        location.href='index.html#mainMenu';
+        location.href='/index.html#mainMenu';
     }, false);
     document.addEventListener('searchbutton', function() {
-        location.href='objects/misc/search.html';
+        location.href='/objects/misc/search.html';
     }, false);
 }, false);
 
@@ -114,7 +114,7 @@ function doQuery(query, showResult) {
     if(showResult) {
         db.transaction(function(tx) {
             tx.executeSql(query, [], function(tx, results) {
-                console.log(results);
+                //console.log(results);
                 return results;
             });
         });
@@ -128,17 +128,17 @@ function doQuery(query, showResult) {
 
 function search(name) {
     name = name.toLowerCase();
-    console.log(name);
+    //console.log(name);
     query = "SELECT name FROM items WHERE name LIKE '%"+name+"%'";
     db.transaction(function(tx) {
         tx.executeSql(query, [], function(tx, results) {
             len = results.rows.length;
             if(len===0) {
-                console.log("No results found");
+                //console.log("No results found");
             }
             else {
                 for(x=0;x<len;x++) {
-                    console.log(results.rows.item(x).name);
+                    //console.log(results.rows.item(x).name);
                 }
             }
         });
@@ -146,19 +146,19 @@ function search(name) {
 }
 
 function populateDatabase() {
-    console.log("populating the database");
+    //console.log("populating the database");
     db.transaction(
         function(tx) {
-            console.log("Inserting Data");
+            //console.log("Inserting Data");
             tx.executeSql("DROP TABLE IF EXISTS items");
             tx.executeSql("CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY, name, category, subcat)");
             $.getScript("js/dbdata.js").done(function(script, status) {
                 for(x=0; x<dbArray.length; x++) {
-                    console.log("Executing query "+x);
+                    //console.log("Executing query "+x);
                     doQuery(dbArray[x], false);
                 }
             });
-            console.log("Done");
+            //console.log("Done");
         }
     );
 }
